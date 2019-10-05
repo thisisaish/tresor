@@ -1,0 +1,36 @@
+main()
+{
+    int num,index,left,right,f;
+    scanf("%d",&num);
+    int arr[num];
+    for(index=0;index<num;index++){
+        scanf("%d",&arr[index]);
+    }
+    for(index=1;index<num-1;index++){
+        left=index-1;
+        right=index+1;
+        while(left>=0){
+            if(arr[left]>arr[index]){
+                f=0;
+                break;
+            }
+            left--;
+            f=1;
+        }
+        if(f==1){
+            while(right<num){
+                if(arr[right]<arr[index]){
+                    f=0;
+                    break;
+                }
+                right++;
+                f=1;
+            }
+        }
+        if(f==1)
+        {
+            printf("%d",arr[index]);
+            break;
+        }
+    }
+}
